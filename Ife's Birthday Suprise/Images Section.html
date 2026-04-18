@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Section</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>A LITTLE MEMORY OF US</h1>
+    <div class="memory-container">
+        <div class="memory-card"><img src="Weekend kisses 💋.jpg" alt="" height="350px"></div>
+        <div class="memory-card"><img src="ChatGPT Image Apr 15, 2026, 08_43_59 AM.png" alt="" height="350px"></div>
+        <div class="memory-card"><img src="ChatGPT Image Apr 15, 2026, 09_44_43 AM.png" alt="" height="350px"></div>
+        <div class="memory-card"><img src="download (1).jpg" alt="" height="350px"></div>
+        <div class="memory-card"><img src="download (2).jpg" alt="" height="350px"></div>
+        <div class="memory-card"><img src="BIKER GIRL.jpg" alt="" height="350px"></div>
+    </div>
+    <div class="nav-buttons">
+    <ul class="G">
+         <li><a href="Wish Letter.html">Go Back</a></li>
+    </ul>
+   </div>
+</body>
+</html>
+<style>
+    body{
+    background-color: palevioletred;
+
+}
+ul li a {
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    transition: 0.3s;
+}
+ul li a:hover{
+    transform: scale(1.1);
+    background-color: antiquewhite;
+}
+.nav-buttons{
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+}
+ul.G, ul.N {
+    list-style: none;
+
+}
+.memory-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    padding: 30px;
+    margin-left: 30px;
+    margin-top: 110px;
+}
+.memory-card{
+    border-radius: 15px;
+    padding-left: 65px;
+}
+.memory-card img{
+    border-radius: 15px;
+    width: 80%;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    font-family: "Pacifico", cursive;
+    font-style: normal;
+    padding: 20px;
+}
+@media (max-width: 480px) {
+    .memory-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+</style>
