@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Suprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="birthday-container">
+        <div class="balloon-group">
+            <span class="balloon">🎈</span>
+            <span class="balloon">🎈</span>
+            <span class="balloon">🎈</span>
+            <span class="balloon">🎈</span>
+        </div>
+        <h1 class="birthday-text">Happy Birthday to the Best Sister</h1>
+        <p>May your year be as bright as these colors.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <div class="nav-buttons">
+    <ul class="G">
+         <li><a href="Music Section.html">Next</a></li>
+    </ul>
+    </div>
+</body>
+</html>
+
+<style>
+    ul li a {
+    text-decoration: none;
+    border: 2px solid white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    transition: 0.3s;
+}
+ul li a:hover{
+    transform: scale(1.1);
+    background-color: antiquewhite;
+}
+.nav-buttons{
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+ul.G, ul.N {
+    list-style: none;
+
+}
+    a{
+        background-color: black;
+        color: white;
+        border: 2px solid white;
+        padding: 10px;
+        list-style-type: none;
+    }
+    body{
+        background-color: black;
+    }
+    .birthday-text{
+        font-family: 'Pacifico', cursive;
+        margin-top: 100px;
+    }
+    .birthday-container{
+        text-align: center;
+        padding-top: 100px;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+    }
+    .balloon-group{
+        position: relative;
+        top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        font-size: 50px;
+    }
+    .balloon{
+        animation: float 10s ease-in-out infinite;
+    }
+    .balloon:nth-child(2) {
+        animation-delay: 1s;
+    }
+    .balloon:nth-child(3) {
+        animation-delay: 2s;
+    }
+    p{
+        color: white;
+    }
+    @keyframes float{
+        0%, 100% {
+            transform: rotateY(0);
+        }
+        50%{
+            translate: rotateY(-30px);
+        }
+    }
+    .birthday-text{
+        font-size: 3rem;
+        color: #ff69b4;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .balloon-group {
+    position: fixed; /* Use fixed so they stay at the top of the screen */
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    z-index: 999; /* This forces them to the VERY front */
+    pointer-events: none; /* This makes sure she can still click buttons 'through' the balloons */
+    padding: 0 20px;
+}
+
+.balloon {
+    font-size: 80px; /* Let's make them bigger! */
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+</style>
+<script>
+    window.onload = function() {
+        // Initial burst
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ff69b4', '#ffc0cb', '#ffd700']
+        });
+
+        // Continuous floating confetti logic
+        var duration = 15 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        var interval = setInterval(function() {
+            var timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            var particleCount = 50 * (timeLeft / duration);
+            
+            confetti(Object.assign({}, defaults, { 
+                particleCount, 
+                origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } 
+            }));
+            confetti(Object.assign({}, defaults, { 
+                particleCount, 
+                origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } 
+            }));
+        }, 250);
+    };
+</script>
